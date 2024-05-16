@@ -1,4 +1,3 @@
-// Load data from local storage if available
 const savedEntries = localStorage.getItem('tableEntries');
 let tableEntries = savedEntries ? JSON.parse(savedEntries) : [];
 const itemType = document.getElementById("itemType");
@@ -37,7 +36,6 @@ function addItem() {
     nameInput.value = "";
     amountInput.value = "";
 
-    // Save updated data to local storage
     saveToLocalStorage();
 }
 
@@ -47,28 +45,32 @@ function loadItems(entry, index) {
     row.insertCell(0).innerText = index + 1;
     row.insertCell(1).innerText = entry.name;
     row.insertCell(2).innerText = entry.amount;
-    const actionsCell = row.insertCell(3);
+    const typeCell = row.insertCell(3);
+    typeCell.innerHTML = entry.type === 0 ? "Expense" : "Income";
+    typeCell.style.color = entry.type === 0 ? "red" : "green";
 
+    const actionsCell = row.insertCell(4);
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
-    deleteButton.classList.add("delete-button");
+    deleteButton.classList.add("btn", "btn-danger");
     deleteButton.addEventListener("click", () => del(entry));
     actionsCell.appendChild(deleteButton);
-
-    const typeIndicatorCell = row.insertCell(4);
-    typeIndicatorCell.innerHTML = entry.type === 0 ? "➚" : "➘";
-    typeIndicatorCell.style.color = entry.type === 0 ? "red" : "green";
 }
 
 function clearTable() {
-    table.innerHTML = "<tr><th>#</th><th>Name</th><th>Amount</th><th>Action</th><th>Type</th></tr>";
+    const headerRow = `<tr class="titles">
+        <th>S.no.</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Delete</th>
+    </tr>`;
+    table.innerHTML = headerRow;
 }
 
 function del(entry) {
-    tableEntries = tableEntries.filter(e => e.name !== entry.name);
+    tableEntries = tableEntries.filter(e => e !== entry);
     updateTable();
-
-    // Save updated data to local storage
     saveToLocalStorage();
 }
 
@@ -82,4 +84,5 @@ function saveToLocalStorage() {
     localStorage.setItem('tableEntries', JSON.stringify(tableEntries));
 }
 
+// Initialize table on page load
 updateTable();
