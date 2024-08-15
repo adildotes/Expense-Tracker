@@ -26,11 +26,9 @@ function addItem() {
     const type = parseInt(itemType.value);
     const name = nameInput.value.trim();
     const amount = parseFloat(amountInput.value);
-
     if (!name || isNaN(amount) || amount <= 0) {
-        return alert("Please provide valid name and amount.");
+        return alert("Please provide a valid name and amount.");
     }
-
     tableEntries.push({ type, name, amount });
     updateTable();
     nameInput.value = "";
@@ -84,5 +82,10 @@ function saveToLocalStorage() {
     localStorage.setItem('tableEntries', JSON.stringify(tableEntries));
 }
 
-// Initialize table on page load
+amountInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        addItem();
+    }
+});
+
 updateTable();

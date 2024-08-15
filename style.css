@@ -1,119 +1,26 @@
 body {
-	display: flexbox;
-	text-align: center;
-	align-items: center;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	background: rgb(238, 174, 202);
-	background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-}
-
-.summary {
-	width: 25rem;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	margin: auto;
-	margin-bottom: 40px;
-	padding: 1%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.total {
-	display: flex;
-	flex-direction: row;
-	margin: auto;
-}
-
-.total>div {
-	width: 200px;
-}
-
-.root {
-	width: fit-content;
-	background-color: white;
-	display: flex;
-	margin: auto;
-	padding: 2%;
-	padding-top: 1%;
-	justify-content: center;
-	text-align: center;
-	border-width: 6px;
-	border: 6px grey;
-	box-sizing: content-box;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	min-height: 30vh;
-	background: rgb(238, 174, 202);
-	background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(146, 83, 168, 0.8969712885154062) 100%);
-	color: white;
-}
-
-
-.vertical {
-	color: rgb(35, 35, 106);
-	margin: 0 2%;
-	border-width: 2px;
-}
-
-#table {
-	border-collapse: collapse;
-	width: 50vw;
-	border: 1px solid #ddd;
-	font-size: 18px;
-}
-
-#table th,
-#table td {
-	text-align: left;
-	padding: 12px;
-}
-
-#table tr {
-	border-bottom: 1px solid #ddd;
-}
-
-#table tr.titles {
-	background-color: lightgreen;
-}
-
-.inputitem {
-	display: flex;
-	flex-direction: row;
-	font-weight: bolder;
-	font-size: large;
-	padding: 1%;
 }
 
 input,
 select,
 option {
-	padding: 2%;
-	border-radius: 5px;
-	margin: 2%;
+	padding: 0.5rem;
+	border-radius: 0.375rem;
+	margin: 0.5rem;
 }
 
 button {
-	font-size: large;
-	border-radius: 5px;
-	padding: 1%;
-}
-
-.zoom {
-	color: black;
-	transition: transform .2s;
-
+	font-size: 1rem;
+	border-radius: 0.375rem;
+	padding: 0.5rem 1rem;
 }
 
 .zoom:hover {
 	transform: scale(1.23);
-
 	color: green;
 }
 
-.section {
-	/* display: flex;	 */
-}
-
 .btn-color:hover {
-	background: rgb(34, 193, 195);
 	background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
 }
